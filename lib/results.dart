@@ -1,3 +1,4 @@
+import 'package:doc_seeker_app/sidebar.dart';
 import 'package:flutter/material.dart';
 
 class Results extends StatefulWidget {
@@ -21,12 +22,17 @@ class _ResultsState extends State<Results> {
     );
 
     return Scaffold(
+      endDrawer: const MyDrawer(),
         appBar: AppBar(
           title: const Text("Subir resultados", style: TextStyle(color: Colors.white),),
           backgroundColor: Colors.blueAccent,
           centerTitle: true,
           actions: <Widget>[
-            IconButton(onPressed: (){}, icon: const Icon(Icons.menu, color: Colors.white,))
+            Builder(
+              builder: (context) {
+                return IconButton(onPressed: (){ Scaffold.of(context).openEndDrawer();}, icon: const Icon(Icons.menu, color: Colors.white,));
+              }
+            )
           ],
           leading: IconButton(
             onPressed: () {},
