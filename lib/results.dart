@@ -14,7 +14,7 @@ class _ResultsState extends State<Results> {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: const Color(0xff0093AB),
       padding: const EdgeInsets.all(10),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -25,7 +25,7 @@ class _ResultsState extends State<Results> {
       endDrawer: const MyDrawer(),
         appBar: AppBar(
           title: const Text("Subir resultados", style: TextStyle(color: Colors.white),),
-          backgroundColor: Colors.blueAccent,
+          backgroundColor: const Color(0xff0093AB),
           centerTitle: true,
           actions: <Widget>[
             Builder(
@@ -146,7 +146,7 @@ Future<void> _dialogBuilder(BuildContext context){
           actions:  [
             TextButton(
                 style: TextButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: const Color(0xff0093AB),
                     padding: const EdgeInsets.symmetric(horizontal: 10)
                 ),
                 onPressed: (){
@@ -181,7 +181,7 @@ Future<void> confirmation(BuildContext context){
             TextButton(
                 style: TextButton.styleFrom(
                     alignment: Alignment.center,
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: const Color(0xff0093AB),
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(1)),
                     ),

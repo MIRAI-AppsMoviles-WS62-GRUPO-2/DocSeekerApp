@@ -11,53 +11,57 @@ class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(16),
+          bottomLeft: Radius.circular(16)
+        )
+      ),
+      backgroundColor: const Color(0xff0093AB).withOpacity(0.6),
       child: ListView(
         children: const <Widget>[
           DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blueAccent
-            ),
-              child: Text("Perfil")
+              child: Text("Perfil", style: TextStyle(color: Colors.white))
           ),
           ListTile(
-            leading: Icon(Icons.lock),
-            title: Text("Seguridad y privacidad"),
+            leading: Icon(Icons.lock, color: Colors.white,),
+            title: Text("Seguridad y privacidad", style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: Icon(Icons.gpp_good),
-            title: Text("Token digital"),
+            leading: Icon(Icons.gpp_good, color: Colors.white),
+            title: Text("Token digital", style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: Icon(Icons.qr_code),
-            title: Text("Operar con QR"),
+            leading: Icon(Icons.qr_code, color: Colors.white),
+            title: Text("Operar con QR", style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: Icon(Icons.lock),
-            title: Text("Seguridad y privacidad"),
+            leading: Icon(Icons.lock, color: Colors.white),
+            title: Text("Seguridad y privacidad", style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: Icon(Icons.auto_stories),
-            title: Text("Experiencias"),
+            leading: Icon(Icons.auto_stories, color: Colors.white),
+            title: Text("Experiencias", style: TextStyle(color: Colors.white))
           ),
           ListTile(
-            leading: Icon(Icons.work),
-            title: Text("Operativas"),
+            leading: Icon(Icons.work, color: Colors.white),
+            title: Text("Operativas", style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text("Configuración"),
+            leading: Icon(Icons.settings, color: Colors.white),
+            title: Text("Configuración", style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: Icon(Icons.error),
-            title: Text("SOS Cliente"),
+            leading: Icon(Icons.error, color: Colors.white),
+            title: Text("SOS Cliente", style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: Icon(Icons.refresh),
-            title: Text("Solicitar revisión"),
+            leading: Icon(Icons.refresh, color: Colors.white),
+            title: Text("Solicitar revisión", style: TextStyle(color: Colors.white)),
           ),
           ListTile(
-            leading: Icon(Icons.help),
-            title: Text("Acerca de DocSeeker"),
+            leading: Icon(Icons.help, color: Colors.white),
+            title: Text("Acerca de DocSeeker", style: TextStyle(color: Colors.white)),
           ),
         ],
       )
