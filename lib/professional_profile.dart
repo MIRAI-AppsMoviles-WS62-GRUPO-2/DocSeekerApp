@@ -30,7 +30,7 @@ class _ProfessionalProfileState extends State<ProfessionalProfile> {
         ),
       ),
       backgroundColor: const Color(0xffd9d9d9),
-      body: Column(
+      body: ListView(
         children: [
           // PRIMER CUADRO
           Row(
@@ -197,67 +197,114 @@ class _ProfessionalProfileState extends State<ProfessionalProfile> {
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                   child: Container(
+                    padding: const EdgeInsets.all(12),
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(16)),
                         color: Colors.white
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12.0),
-                      child: Column(
-                        children:[
-                          Row(
-                            children:[
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.all(Radius.circular(16)),
-                                    color: const Color(0xffEF802F).withOpacity(0.05),
-                                ),
-                                padding: const EdgeInsets.all(5.0),
-                                alignment: Alignment.centerLeft,
-                                child: const Icon(Icons.star_rounded, color: Color(0xffEF802F)),
+                    child: Column(
+                      children:[
+                        Row(
+                          children:[
+                            Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(Radius.circular(16)),
+                                  color: const Color(0xffEF802F).withOpacity(0.05),
                               ),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text("Puntuación", style: TextStyle(color: Color(0xff394d6d), fontWeight: FontWeight.w400, fontSize: 12)),
-                                    Text("4.78 de 5", style: TextStyle(color: Color(0xff394d6d), fontWeight: FontWeight.bold, fontSize: 12))
-                                  ]
-                                ),
+                              padding: const EdgeInsets.all(5.0),
+                              alignment: Alignment.centerLeft,
+                              child: const Icon(Icons.star_rounded, color: Color(0xffEF802F)),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text("Puntuación", style: TextStyle(color: Color(0xff394d6d), fontWeight: FontWeight.w400, fontSize: 12)),
+                                  Text("4.78 de 5", style: TextStyle(color: Color(0xff394d6d), fontWeight: FontWeight.bold, fontSize: 12))
+                                ]
                               ),
-                              Expanded(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    FilledButton(
-                                      style: TextButton.styleFrom(
-                                        backgroundColor: const Color(0xff0093AB),
-                                        shape: const RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(Radius.circular(16))
+                            ),
+                            Expanded(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  FilledButton(
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: const Color(0xff0093AB),
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(Radius.circular(16))
+                                      ),
+                                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
+                                    ),
+                                    child: const Row(
+                                      children: [
+                                        Padding(
+                                          padding: EdgeInsets.only(right: 8.0),
+                                          child: Text("Ver más", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
                                         ),
-                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
-                                      ),
-                                      child: const Row(
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(right: 8.0),
-                                            child: Text("Ver más", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400)),
-                                          ),
-                                          Icon(Icons.arrow_forward_ios, color: Colors.white, size: 12,)
-                                        ],
-                                      ),
-                                      onPressed: (){}
-                                  ),
-                                  ]
+                                        Icon(Icons.arrow_forward_ios, color: Colors.white, size: 12,)
+                                      ],
+                                    ),
+                                    onPressed: (){}
                                 ),
-                              )
+                                ]
+                              ),
+                            )
+                          ]
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: const Color(0xffF2F4F7), width: 1)
+                            )
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 8.0),
+                                child: Text("Camilo Alberto Cortés Montejo", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.black)),
+                              ),
+                              Text("Especialista muy competente. Estoy muy feliz "
+                                  "de que haya médicos tan profesionales. Mi salud "
+                                  "está en buenas manos. La salud está por encima "
+                                  "de todo.", style: TextStyle(fontSize: 12, color: Colors.black))
                             ]
-                          )
-                        ]
-                      ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
+                          child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: const Color(0xffF2F4F7), width: 1)
+                              )
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(bottom: 8.0),
+                                  child: Text("Ana María de la Peña Posada", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.black)),
+                                ),
+                                Text("Simplemente una doctora maravillosa, "
+                                    "muy feliz de que me haya estado guiando, "
+                                    "competente, muy inteligente, agradable.", style: TextStyle(fontSize: 12, color: Colors.black))
+                              ]
+                          ),
+                        ),
+                      ]
                     )
                   ),
                 ),
@@ -268,13 +315,28 @@ class _ProfessionalProfileState extends State<ProfessionalProfile> {
             children: [
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                   child: Container(
+                    padding: const EdgeInsets.all(16.0),
                     decoration: const BoxDecoration(
                         borderRadius: BorderRadius.all(Radius.circular(16)),
                         color: Colors.white
                     ),
-                    child: Text("Hola?"),
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text("Educación", style: TextStyle(color: Color(0xff6A788E), fontSize: 16, fontWeight: FontWeight.bold)),
+                        ),
+                        Text("Comprometidos en el tratamiento eficaz de la discapacidad, "
+                            "depresión, síndrome de fatiga crónica, miedos, ansiedad, apatía "
+                            "y letargo, trastornos del sueño, esquizofrenia, trastornos mentales "
+                            "en ancianos y seniles. Además, realiza una recepción en inglés.",
+                          style: TextStyle(fontSize:12, color: Colors.black)
+                        )
+                      ]
+                    ),
                   ),
                 ),
               ),
