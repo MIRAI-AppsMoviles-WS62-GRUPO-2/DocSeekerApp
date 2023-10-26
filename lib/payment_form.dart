@@ -16,7 +16,7 @@ class _PaymentFormState extends State<PaymentForm> {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/800px-MasterCard_Logo.svg.png',
     'https://cdn-icons-png.flaticon.com/512/196/196539.png',
     'https://logos-world.net/wp-content/uploads/2020/08/PayPal-Symbol.png',
-    'https://1000marcas.net/wp-content/uploads/2020/08/logo-Diners-Club-International.png'
+    'https://1000marcas.net/wp-content/uploads/2020/08/logo-Diners-Club-International.png',
   ];
   List<String> methodsList = [
     'Visa', 'MasterCard', 'AmericanExpress', 'Paypal', 'DinnersClub'
@@ -48,8 +48,8 @@ class _PaymentFormState extends State<PaymentForm> {
           icon: const Icon(Icons.arrow_back_ios_sharp, color: Colors.white,),
         ),
       ),
+      backgroundColor: const Color(0xffd9d9d9),
       body: ListView(
-        shrinkWrap: true,
         children: [
           Container(
             padding: EdgeInsets.all(8.0),
@@ -128,73 +128,264 @@ class _PaymentFormState extends State<PaymentForm> {
               ],
             ),
           ),
-          Text("Tus datos de pago"),
-          Text("Titular de la tarjeta"),
-          /*Row(
-            children: [
-              Expanded(child: TextFormField(controller: ownerCard)),
-            ],
-          ),*/
-          Text("Número de la tarjeta"),
-          /*Row(
-            children: [
-              Expanded(child: TextFormField(controller: numberCard)),
-            ],
-          ),*/
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text("Tus datos de pago", style: TextStyle(color: Color(0xff020a51), fontWeight: FontWeight.bold, fontSize: 20)),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: Text("Titular de la tarjeta", style: TextStyle(color: Color(0xff020a51), fontSize: 16)),
+          ),
           Row(
             children: [
-              Column(
-                children: [
-                  Text("Fecha de vencimiento"),
-                  /*Row(
-                    children: [
-                      Expanded(child: TextFormField(controller: expirationDate)),
-                    ],
-                  )*/
-                ],
+              Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    child: TextFormField(
+                      controller: ownerCard,
+                      maxLines: 1,
+                      decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          contentPadding: EdgeInsets.all(15),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white70, width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(16))
+                        ),
+                          hintText: 'Ej. Rodolfo Rivera',
+                          hintStyle: TextStyle(color: Color(0xffd9d9d9), fontWeight: FontWeight.w400)
+                      ),
+                    ),
+                  )
               ),
-              Column(
-                children: [
-                  Row(
-                    children: [
-                      Text("CVV"),
-                      Icon(Icons.help_outline)
-                    ],
-                  ),
-                  /*Row(
-                    children: [
-                      Expanded(child: TextFormField(controller: cvv)),
-                    ],
-                  )*/
-                ],
-              )
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: Text("Número de la tarjeta", style: TextStyle(color: Color(0xff020a51), fontSize: 16)),
+          ),
+          Row(
+            children: [
+              Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    child: TextFormField(
+                      controller: numberCard,
+                      maxLines: 1,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: EdgeInsets.all(15),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.white70, width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(16))
+                        ),
+                        hintText: 'XXXX XXXX XXXX XXXX',
+                        hintStyle: TextStyle(color: Color(0xffd9d9d9), fontWeight: FontWeight.w400)
+                      ),
+                    ),
+                  )
+              ),
             ],
           ),
           Row(
             children: [
-              Text("Monto total"),
-              Row(
+              Expanded(
+                child: Column(
                   children: [
-                    Text("Ver detalles"),
-                    Icon(Icons.arrow_forward)
-                ]
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0, top: 8.0, left: 16.0, right: 8.0),
+                      child: Text("Fecha de vencimiento", style: TextStyle(color: Color(0xff020a51), fontSize: 16)),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0, top: 8.0, left: 16.0, right: 8.0),
+                              child: TextFormField(
+                                controller: numberCard,
+                                maxLines: 1,
+                                decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    contentPadding: EdgeInsets.all(15),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Colors.white70, width: 1),
+                                        borderRadius: BorderRadius.all(Radius.circular(16))
+                                    ),
+                                    hintText: 'MM/YYYY',
+                                    hintStyle: TextStyle(color: Color(0xffd9d9d9), fontWeight: FontWeight.w400)
+                                ),
+                              ),
+                            )
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+
+              ),
+              Expanded(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0, top: 8.0, left: 8.0, right: 16.0),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right:8.0),
+                            child: Text("CVV", style: TextStyle(color: Color(0xff020a51), fontSize: 16)),
+                          ),
+                          Icon(Icons.help_outline, color: Color(0xff020a51), size: 14,)
+                        ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0, top: 8.0, left: 8.0, right: 16.0),
+                              child: TextFormField(
+                                controller: numberCard,
+                                maxLines: 1,
+                                decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    contentPadding: EdgeInsets.all(15),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(color: Colors.white70, width: 1),
+                                        borderRadius: BorderRadius.all(Radius.circular(16))
+                                    ),
+                                    hintText: 'Ej. 123',
+                                    hintStyle: TextStyle(color: Color(0xffd9d9d9), fontWeight: FontWeight.w400)
+                                ),
+                              ),
+                            )
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               )
             ],
           ),
-          Text("S/75.00 PEN"),
-          CheckboxListTile(
-            value: checkBox,
-            onChanged: (value){
-              setState(() {
-                checkBox = value!;
-              });
-            },
-            title: Text("Guardar datos para futuras compras"),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+            child: Row(
+              children: [
+                Text("Monto total", style: TextStyle(color: Color(0xff020a51), fontSize: 16)),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: Text("Ver detalles", style: TextStyle(color: Color(0xff020a51), fontSize: 16)),
+                        ),
+                        Icon(Icons.arrow_forward, color: Color(0xff020a51))
+                    ]
+                  ),
+                )
+              ],
+            ),
           ),
-          FilledButton(onPressed: (){}, child: Text("Confirmar"))
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+            child: Text("S/75.00 PEN", style: TextStyle(color: Color(0xff0093AB), fontSize: 30, fontWeight: FontWeight.bold)),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Checkbox(
+                  activeColor: Color(0xff0093AB),
+                  value: checkBox,
+                  onChanged: (value){
+                    setState(() {
+                      checkBox = value!;
+                    });
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5.0),
+                  child: Text("Guardar datos para futuras compras", style: TextStyle(color: Color(0xff020a51), fontSize: 14)),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 16.0),
+            child: FilledButton(
+              style: TextButton.styleFrom(backgroundColor: Color(0xffFD5D5D)),
+                onPressed: (){_dialogBuilderPayment(context);},
+                child: Text("Confirmar")),
+          )
         ],
       ),
     );
   }
 }
 
+
+Future<void> _dialogBuilderPayment(BuildContext context){
+  return showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          title: const Text("¿Estas seguro?", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 15)),
+          content:
+          const Text("¿Estas seguro que quieres subir el resultado actual? No podras hacer cambios luego.",
+              style: TextStyle(color: Colors.black, fontSize: 10)),
+          actions:  [
+            TextButton(
+                style: TextButton.styleFrom(
+                    backgroundColor: const Color(0xff0093AB),
+                    padding: const EdgeInsets.symmetric(horizontal: 10)
+                ),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                  confirmationPayment(context);},
+                child: const Text("Sí", style: TextStyle(color: Colors.white))
+            ),
+            TextButton(
+                style: TextButton.styleFrom(
+                    backgroundColor: const Color(0xffFD5D5D),
+                    padding: const EdgeInsets.symmetric(horizontal: 10)
+                ),
+                onPressed: (){ Navigator.of(context).pop();},
+                child: const Text("No", style: TextStyle(color: Colors.white))
+            )
+          ],
+        );
+      });
+}
+
+Future<void> confirmationPayment(BuildContext context){
+  return showDialog(
+      context: context,
+      builder: (BuildContext context){
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          alignment: Alignment.center,
+          actionsAlignment: MainAxisAlignment.center,
+          title: const Text("Pago realizado con éxito", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+          content: const Icon(Icons.file_download_done, color: Colors.black, size: 50,),
+          actions: [
+            TextButton(
+                style: TextButton.styleFrom(
+                    alignment: Alignment.center,
+                    backgroundColor: const Color(0xff0093AB),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(1)),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 10)
+                ),
+                onPressed: (){Navigator.of(context).pop();},
+                child: const Text("Cerrar", style: TextStyle(color: Colors.white)))
+          ],
+        );
+      }
+  );
+}
