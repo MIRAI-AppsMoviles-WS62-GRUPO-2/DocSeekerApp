@@ -2,13 +2,16 @@ import 'package:doc_seeker_app/sidebar.dart';
 import 'package:flutter/material.dart';
 
 class ProfessionalProfile extends StatefulWidget {
-  const ProfessionalProfile({super.key});
+  const ProfessionalProfile({super.key, required this.doctor});
+  final doctor;
 
   @override
-  State<ProfessionalProfile> createState() => _ProfessionalProfileState();
+  State<ProfessionalProfile> createState() => _ProfessionalProfileState(doctor);
 }
 
 class _ProfessionalProfileState extends State<ProfessionalProfile> {
+  _ProfessionalProfileState(this.doctor);
+  final doctor;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +28,7 @@ class _ProfessionalProfileState extends State<ProfessionalProfile> {
           )
         ],
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () { Navigator.pop(context);},
           icon: const Icon(Icons.arrow_back_ios_sharp, color: Colors.white,),
         ),
       ),
@@ -51,8 +54,8 @@ class _ProfessionalProfileState extends State<ProfessionalProfile> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text("Dr. Valentina Laverde", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16)),
-                              const Text("Podólogo", style: TextStyle(color: Color(0xff091f44), fontWeight: FontWeight.w400, fontSize: 12)),
+                              Text("${doctor.gender=='Femenino'? "Dra":"Dr"}. ${doctor.name} ${doctor.lastname}", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16)),
+                              Text("${doctor.speciality}", style: TextStyle(color: Color(0xff091f44), fontWeight: FontWeight.w400, fontSize: 12)),
                               Padding(
                                 padding: const EdgeInsets.only(top: 8.0),
                                 child: Row(
