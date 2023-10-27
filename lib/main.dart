@@ -1,3 +1,4 @@
+import 'package:doc_seeker_app/professionalList.dart';
 import 'package:doc_seeker_app/professional_profile.dart';
 import 'package:doc_seeker_app/results.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ProfessionalProfile(),
+      home: ListProfessional(),
     );
   }
 }
