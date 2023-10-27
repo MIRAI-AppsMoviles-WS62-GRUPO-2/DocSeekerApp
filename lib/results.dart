@@ -114,7 +114,7 @@ class _ResultsState extends State<Results> {
                       padding: const EdgeInsets.all(10),
                       child: TextButton(
                           style: TextButton.styleFrom(
-                            backgroundColor: Colors.redAccent,
+                            backgroundColor: const Color(0xffFD5D5D),
                             padding: const EdgeInsets.all(10),
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -156,7 +156,7 @@ Future<void> _dialogBuilder(BuildContext context){
             ),
             TextButton(
                 style: TextButton.styleFrom(
-                    backgroundColor: Colors.redAccent,
+                    backgroundColor: const Color(0xffFD5D5D),
                     padding: const EdgeInsets.symmetric(horizontal: 10)
                 ),
                 onPressed: (){ Navigator.of(context).pop();},
