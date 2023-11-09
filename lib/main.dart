@@ -1,26 +1,21 @@
-import 'package:doc_seeker_app/payment_form.dart';
-import 'package:doc_seeker_app/professionalList.dart';
-import 'package:doc_seeker_app/professional_profile.dart';
-import 'package:doc_seeker_app/results.dart';
+import 'package:doc_seeker_app/config/theme.dart';
+import 'package:doc_seeker_app/router/app_router.dart';
+//import 'package:dockseekerapp/screens/index.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: ListProfessional(),
+      theme: AppTheme().getTheme(),
+      routerConfig: appRouter,
     );
   }
 }
