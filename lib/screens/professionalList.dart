@@ -1,8 +1,8 @@
-import 'package:dockseekerapp/screens/professional_profile.dart';
-import 'package:dockseekerapp/widgets/side_menu.dart';
-import 'package:dockseekerapp/router/app_router.dart';
+import 'package:doc_seeker_app/screens/professional_profile.dart';
+import 'package:doc_seeker_app/widgets/side_menu.dart';
+import 'package:doc_seeker_app/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:dockseekerapp/doctors/api/Service.dart';
+import 'package:doc_seeker_app/doctors/api/Service.dart';
 
 enum specialities {Todos, Dermatolgia, Podologia, General, Psiquiatria}
 enum estrellas {Todos, Una, Dos, Tres, Cuatro, Cinco}

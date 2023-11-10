@@ -1,4 +1,4 @@
-import 'package:dockseekerapp/router/app_router.dart';
+import 'package:doc_seeker_app/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 List<Map<dynamic, String>> sectionsList = [

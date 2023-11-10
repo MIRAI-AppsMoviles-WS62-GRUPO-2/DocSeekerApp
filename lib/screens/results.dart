@@ -1,6 +1,6 @@
-import 'package:dockseekerapp/widgets/side_menu.dart';
-import 'package:dockseekerapp/router/app_router.dart';
-import 'package:dockseekerapp/widgets/index.dart';
+import 'package:doc_seeker_app/widgets/side_menu.dart';
+import 'package:doc_seeker_app/router/app_router.dart';
+import 'package:doc_seeker_app/widgets/index.dart';
 import 'package:flutter/material.dart';
 
 class Results extends StatefulWidget {

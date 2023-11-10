@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:dockseekerapp/router/app_router.dart';
-import 'package:dockseekerapp/widgets/side_menu.dart';
+import 'package:doc_seeker_app/router/app_router.dart';
+import 'package:doc_seeker_app/widgets/side_menu.dart';
 import 'package:intl/intl.dart';
 
 class SeleccionarScreen extends StatefulWidget {
