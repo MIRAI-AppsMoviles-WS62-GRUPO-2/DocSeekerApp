@@ -1,7 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
-import 'package:doc_seeker_app/screens/noticias.dart';
 import 'package:flutter/material.dart';
-//import 'package:dockseekerapp/screens/noticias.dart';
+import 'package:dockseekerapp/screens/noticias.dart';
 
 List imageList = [
   'https://i.ibb.co/NrqGNX0/dms.jpg',

@@ -1,4 +1,4 @@
-import 'package:doc_seeker_app/widgets/side_menu.dart';
+import 'package:dockseekerapp/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
 
 class NoticiasScreen extends StatelessWidget {
@@ -71,7 +71,7 @@ class NoticiasScreen extends StatelessWidget {
                     '¿Quienes nos respaldan?',
                     style: TextStyle(
                         color:
-                            Color(0xFFfd5d5d), // Color en formato hexadecimal
+                        Color(0xFFfd5d5d), // Color en formato hexadecimal
                         // color: Color.fromRGBO(253, 93, 93, 1.0), // Color en formato rgb
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold),

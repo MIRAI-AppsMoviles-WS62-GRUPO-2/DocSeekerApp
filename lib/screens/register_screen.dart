@@ -1,4 +1,4 @@
-import 'package:doc_seeker_app/router/app_router.dart';
+import 'package:dockseekerapp/router/app_router.dart';
 import 'package:flutter/material.dart';
 
 List<Map<dynamic, String>> sectionsList = [
@@ -130,7 +130,11 @@ class _SectionRow extends StatelessWidget {
               shadowColor: const MaterialStatePropertyAll(Colors.black),
             ),
             onPressed: () {
-              appRouter.push('/form_signup');
+              if(textButton == 'Profesional de la salud'){
+                appRouter.push('/profesional');
+              } else{
+                appRouter.push('/form_signup');
+              }
             },
             child: Text(
               textButton,
