@@ -1,4 +1,3 @@
-
 import 'package:doc_seeker_app/router/app_router.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +8,9 @@ class CargaArchivoPaciente extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Column(children: [
+      body: Padding(
+        padding: const EdgeInsets.only(left: 15, right: 15),
+        child: ListView(children: [
           Padding(
             padding: const EdgeInsets.only(top: 30, left: 10),
             child: Align(
@@ -86,7 +85,9 @@ class CargaArchivoPaciente extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     //Icon(Icons.upload_file, size: 80),
-                    Image(image: AssetImage('assets/medical-report.png'), width: 80),
+                    Image(
+                        image: AssetImage('assets/medical-report.png'),
+                        width: 80),
                     SizedBox(width: 10),
                     Text('Historial Médico', style: TextStyle(fontSize: 18)),
                   ],

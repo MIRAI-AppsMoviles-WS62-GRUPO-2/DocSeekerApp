@@ -7,9 +7,8 @@ class FormSignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Column(
+      body: ListView(children: [
+        Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 30, left: 10),
@@ -96,7 +95,7 @@ class FormSignUpScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ]),
     );
   }
 }
