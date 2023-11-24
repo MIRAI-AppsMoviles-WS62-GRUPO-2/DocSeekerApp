@@ -1,11 +1,51 @@
+//import 'dart:html';
+import 'dart:async';
+
+import 'package:doc_seeker_app/doctors/api/Service.dart';
+import 'package:doc_seeker_app/news/api/New.dart';
+import 'package:doc_seeker_app/news/api/NewService.dart';
+import 'package:doc_seeker_app/professional_profile.dart';
 import 'package:doc_seeker_app/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class NoticiasScreen extends StatelessWidget {
+class NoticiasScreen extends StatefulWidget {
   const NoticiasScreen({Key? key}) : super(key: key);
 
   @override
+  State<NoticiasScreen> createState() => _NoticiasScreenState();
+}
+
+class _NoticiasScreenState extends State<NoticiasScreen> {
+  late StreamController<DateTime> _dateStreamController;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _dateStreamController = StreamController<DateTime>();
+    _timer =
+        Timer.periodic(Duration(days: 1), (_) => _updateDate(DateTime.now()));
+
+    // Inicia la fecha inicial
+    _updateDate(DateTime.now());
+  }
+
+  void _updateDate(DateTime date) {
+    _dateStreamController.add(date);
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    _dateStreamController.close();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    List<New> _newsList = [];
     final textStyles = Theme.of(context).textTheme;
     return Scaffold(
       endDrawer: const SideMenu(),
@@ -43,9 +83,44 @@ class NoticiasScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Stack(children: [
+      body: /*FutureBuilder<List<New>>(
+            future: NewService.getNews(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (snapshot.hasError) {
+                return Center(
+                  child: Text('Error: ${snapshot.error}'),
+                );
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return Center(
+                  child: Text('No hay noticias disponibles.'),
+                );
+              } else {
+                List<New> newsList = snapshot.data!;
+                return ListView.builder(
+                  itemCount: newsList.length,
+                  itemBuilder: (context, index) {
+                    return Card(
+                      elevation: 5,
+                      margin: EdgeInsets.all(10),
+                      child: ListTile(
+                        title: Text(newsList[index].title),
+                        subtitle: Text(newsList[index].description),
+                        // Puedes agregar más widgets dentro del ListTile según tus necesidades
+                      ),
+                    );
+                  },
+                );
+              }
+            })*/
+
+          Stack(children: [
         Container(
-          height: MediaQuery.of(context).size.width /2, // Esto hace que el contenedor ocupe la mitad de la altura de la pantalla
+          height: MediaQuery.of(context).size.width /
+              2, // Esto hace que el contenedor ocupe la mitad de la altura de la pantalla
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
@@ -70,23 +145,113 @@ class NoticiasScreen extends StatelessWidget {
                   child: Text(
                     '¿Quienes nos respaldan?',
                     style: TextStyle(
-                        color:
-                        Color(0xFFfd5d5d), // Color en formato hexadecimal
-                        // color: Color.fromRGBO(253, 93, 93, 1.0), // Color en formato rgb
+                        //color:
+                        //Color(0xFFfd5d5d), // Color en formato hexadecimal
+                        color: Color.fromRGBO(
+                            253, 93, 93, 1.0), // Color en formato rgb
                         fontSize: 24.0,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
-              Text(
+              /*Text(
                 '27/04/2023',
                 style: TextStyle(
-                    color: const Color.fromRGBO(
-                        0, 147, 171, 1.0), // Color en formato rgb
+                    color: Color.fromARGB(
+                        255, 255, 255, 255), // Color en formato rgb
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold),
+              ),*/
+              StreamBuilder<DateTime>(
+                stream: _dateStreamController.stream,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    String formattedDate =
+                        DateFormat('dd/MM/yyyy').format(snapshot.data!);
+
+                    return Text(
+                      formattedDate,
+                      style: TextStyle(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    );
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                },
               ),
-              Card(
+              FutureBuilder<List<New>>(
+                  future: NewService.getNews(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (snapshot.hasError) {
+                      return Center(
+                        child: Text('Error: ${snapshot.error}'),
+                      );
+                    } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                      return Center(
+                        child: Text('No hay noticias disponibles.'),
+                      );
+                    } else {
+                      List<New> newsList = snapshot.data!;
+                      return Expanded(
+                        child: Container(
+                          //height: MediaQuery.of(context).size.height,
+                          child: ListView.builder(
+                            itemCount: newsList.length,
+                            itemBuilder: (context, index) {
+                              return Card(
+                                elevation: 5,
+                                margin: EdgeInsets.all(10),
+                                child: ListTile(
+                                  title: Text(newsList[index].title),
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(newsList[index].description),
+                                      Container(
+                                        height: 8,
+                                      ),
+                                      Image.network(
+                                        newsList[index].imageUrl,
+                                        width: 50,
+                                        height: 50,
+                                        fit: BoxFit.cover,
+                                      )
+                                    ],
+                                  ),
+                                  // Puedes agregar más widgets dentro del ListTile según tus necesidades
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      );
+                    }
+                  })
+              /*_newsList.isEmpty
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : ListView.builder(
+                      itemCount: _newsList.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          elevation: 5,
+                          margin: EdgeInsets.all(10),
+                          child: ListTile(
+                            title: Text(_newsList[index].title),
+                            subtitle: Text(_newsList[index].description),
+                          ),
+                        );
+                      })*/
+              /*Card(
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
@@ -125,7 +290,7 @@ class NoticiasScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
+              ),*/
             ],
           ),
         ),

@@ -8,9 +8,9 @@ class CargaArchivoPaciente extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Column(children: [
+      body: Padding(
+        padding: const EdgeInsets.only(left: 25, right: 25),
+        child: ListView(children: [
           Padding(
             padding: const EdgeInsets.only(top: 30, left: 10),
             child: Align(
@@ -38,6 +38,7 @@ class CargaArchivoPaciente extends StatelessWidget {
             ),
           ),
           const Text('Paciente',
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           SizedBox(
             width: 300,
@@ -85,7 +86,9 @@ class CargaArchivoPaciente extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     //Icon(Icons.upload_file, size: 80),
-                    Image(image: AssetImage('assets/medical-report.png'), width: 80),
+                    Image(
+                        image: AssetImage('assets/medical-report.png'),
+                        width: 80),
                     SizedBox(width: 10),
                     Text('Historial Médico', style: TextStyle(fontSize: 18)),
                   ],

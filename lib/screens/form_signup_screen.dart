@@ -1,15 +1,19 @@
 import 'package:doc_seeker_app/router/app_router.dart';
 import 'package:flutter/material.dart';
 
-class FormSignUpScreen extends StatelessWidget {
+class FormSignUpScreen extends StatefulWidget {
   const FormSignUpScreen({super.key});
 
   @override
+  State<FormSignUpScreen> createState() => _FormSignUpScreenState();
+}
+
+class _FormSignUpScreenState extends State<FormSignUpScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: Column(
+      body: ListView(children: [
+        Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 30, left: 10),
@@ -38,8 +42,14 @@ class FormSignUpScreen extends StatelessWidget {
                 children: [
                   TextFormField(
                     decoration: const InputDecoration(
-                      //hintText: 'Nombres y Apellidos',
-                      labelText: 'Nombres y Apellidos',
+                      //hintText: 'Nombres',
+                      labelText: 'Nombres',
+                    ),
+                  ),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      //hintText: 'Apellidos',
+                      labelText: 'Apellidos',
                     ),
                   ),
                   TextFormField(
@@ -96,7 +106,7 @@ class FormSignUpScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      ]),
     );
   }
 }
