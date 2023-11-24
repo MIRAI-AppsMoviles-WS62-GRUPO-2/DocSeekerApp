@@ -1,5 +1,5 @@
-import 'package:doc_seeker_app/sidebar.dart';
 import 'package:doc_seeker_app/widgets/image_slider.dart';
+import 'package:doc_seeker_app/router/app_router.dart';
 import 'package:doc_seeker_app/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     final textStyles = Theme.of(context).textTheme;
 
     return Scaffold(
-      endDrawer: const MyDrawer(),
+      endDrawer: const SideMenu(),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
@@ -34,6 +34,11 @@ class HomeScreen extends StatelessWidget {
             label: 'Ajustes',
           ),
         ],
+        onTap: (int index){
+          if(index == 2){
+            appRouter.go('/perfil');
+          }
+        },
       ),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
@@ -98,7 +103,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    print('Botón presionado');
+                    appRouter.go('/profileprof');
                   },
                   child: Column(
                     children: <Widget>[

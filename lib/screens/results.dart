@@ -1,4 +1,6 @@
-import 'package:doc_seeker_app/sidebar.dart';
+import 'package:doc_seeker_app/widgets/side_menu.dart';
+import 'package:doc_seeker_app/router/app_router.dart';
+import 'package:doc_seeker_app/widgets/index.dart';
 import 'package:flutter/material.dart';
 
 class Results extends StatefulWidget {
@@ -14,7 +16,7 @@ class _ResultsState extends State<Results> {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle flatButtonStyle = TextButton.styleFrom(
-      backgroundColor: const Color(0xff0093AB),
+      backgroundColor: Color.fromRGBO(0, 147, 171, 1),
       padding: const EdgeInsets.all(10),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -22,10 +24,32 @@ class _ResultsState extends State<Results> {
     );
 
     return Scaffold(
-      endDrawer: const MyDrawer(),
+      endDrawer: const SideMenu(),
+        bottomNavigationBar: BottomNavigationBar(
+          unselectedItemColor: Colors.grey,
+          type: BottomNavigationBarType.fixed,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Inicio',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bookmark),
+              label: 'Favoritos',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Perfil',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Ajustes',
+            ),
+          ],
+        ),
         appBar: AppBar(
           title: const Text("Subir resultados", style: TextStyle(color: Colors.white),),
-          backgroundColor: const Color(0xff0093AB),
+          backgroundColor: Color.fromRGBO(0, 147, 171, 1),
           centerTitle: true,
           actions: <Widget>[
             Builder(
@@ -35,7 +59,9 @@ class _ResultsState extends State<Results> {
             )
           ],
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              appRouter.go('/homeM');
+            },
             icon: const Icon(Icons.arrow_back_ios_sharp, color: Colors.white,),
           ),
         ),
@@ -114,7 +140,7 @@ class _ResultsState extends State<Results> {
                       padding: const EdgeInsets.all(10),
                       child: TextButton(
                           style: TextButton.styleFrom(
-                            backgroundColor: const Color(0xffFD5D5D),
+                            backgroundColor: Colors.redAccent,
                             padding: const EdgeInsets.all(10),
                             shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.all(Radius.circular(2)),
@@ -146,7 +172,7 @@ Future<void> _dialogBuilder(BuildContext context){
           actions:  [
             TextButton(
                 style: TextButton.styleFrom(
-                    backgroundColor: const Color(0xff0093AB),
+                    backgroundColor: Color.fromRGBO(0, 147, 171, 1),
                     padding: const EdgeInsets.symmetric(horizontal: 10)
                 ),
                 onPressed: (){
@@ -156,7 +182,7 @@ Future<void> _dialogBuilder(BuildContext context){
             ),
             TextButton(
                 style: TextButton.styleFrom(
-                    backgroundColor: const Color(0xffFD5D5D),
+                    backgroundColor: Colors.redAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 10)
                 ),
                 onPressed: (){ Navigator.of(context).pop();},
@@ -181,7 +207,7 @@ Future<void> confirmation(BuildContext context){
             TextButton(
                 style: TextButton.styleFrom(
                     alignment: Alignment.center,
-                    backgroundColor: const Color(0xff0093AB),
+                    backgroundColor: Colors.blueAccent,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(1)),
                     ),

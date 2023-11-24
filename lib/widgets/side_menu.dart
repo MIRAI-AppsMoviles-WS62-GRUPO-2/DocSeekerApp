@@ -7,7 +7,7 @@ List<Map<dynamic, dynamic>> navigationSection = [
     'navigationPath': '/cuidador',
   },
   {
-    'icon': Icons.shield_outlined,
+    'icon': Icons.gpp_good,
     'text': 'Token digital',
     'navigationPath': '/cuidador',
   },
@@ -17,12 +17,12 @@ List<Map<dynamic, dynamic>> navigationSection = [
     'navigationPath': '/cuidador',
   },
   {
-    'icon': Icons.menu_book_rounded,
+    'icon': Icons.auto_stories,
     'text': 'Experiencias',
     'navigationPath': '/cuidador',
   },
   {
-    'icon': Icons.wallet, 
+    'icon': Icons.work,
     'text': 'Operativas',
     'navigationPath': '/operativas',
   },
@@ -32,7 +32,7 @@ List<Map<dynamic, dynamic>> navigationSection = [
     'navigationPath': '/configuracion',
   },
   {
-    'icon': Icons.warning,
+    'icon': Icons.error,
     'text': 'SOS Cliente',
     'navigationPath': '/sos_cliente',
   },
@@ -46,43 +46,80 @@ List<Map<dynamic, dynamic>> navigationSection = [
     'text': 'Acerca de DockSeeker',
     'navigationPath': '/acerca_de_dockseeker',
   },
+  {
+    'icon': Icons.exit_to_app,
+    'text': 'Salir',
+    'navigationPath': '/'
+  },
 ];
 
-class SideMenu extends StatefulWidget {
-  const SideMenu({super.key});
+class SideMenu extends StatelessWidget {
+  const SideMenu({Key? key});
 
-  @override
-  State<SideMenu> createState() => _SideMenuState();
-}
-
-class _SideMenuState extends State<SideMenu> {
   @override
   Widget build(BuildContext context) {
     int navDrawerIndex = 0;
 
-    return Container(
-      decoration: BoxDecoration(
-        color:
-            Color.fromRGBO(8, 132, 152, 1.0),
-      ),
-      child: NavigationDrawer(selectedIndex: navDrawerIndex, children: [
-        for (var item in navigationSection)
-          NavigationDrawerDestination(
-            icon: Icon(item['icon']!),
-            label: Text(item['text']!),
+    return Drawer(
+      child: ListView(
+        children: <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blueAccent,
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage('assets/paciente.png'),
+                      radius:50,
+                    ),
+                    SizedBox(width: 10),
+                    Column(
+                      children: [
+                        Text(
+                          "Camilo Alberto",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white
+                          ),
+                        ),
+                        Text(
+                          "Puntos Seeker: 0",
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white
+                          ),
+                        ),
+                        Text(
+                          "Perfil",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Color(0xFFFD5D5D),
+                          ),
+                        ),
+                      ]
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        // ...navigationSection.map(
-        //   (item) => NavigationDrawerDestination(
-        //     icon: Icon(Icons.abc),
-        //     label: Text('text'),
-        //   ),
-        // )
-        SizedBox(height: 190),
-        NavigationDrawerDestination(
-          icon: Icon(Icons.exit_to_app),
-          label: Text('Salir'),
-        ),
-      ]),
+          Column(
+            children: [
+              for (var item in navigationSection)
+                ListTile(
+                  leading: Icon(item['icon']),
+                  title: Text(item['text']),
+                  onTap: () {
+                    Navigator.of(context).pushNamed(item['navigationPath']);
+                  },
+                ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

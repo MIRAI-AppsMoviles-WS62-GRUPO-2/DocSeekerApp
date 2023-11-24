@@ -1,6 +1,6 @@
 import 'package:doc_seeker_app/config/theme.dart';
 import 'package:doc_seeker_app/router/app_router.dart';
-//import 'package:dockseekerapp/screens/index.dart';
+//import 'package:doc_seeker_app/screens/index.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
       theme: AppTheme().getTheme(),
       routerConfig: appRouter,
     );

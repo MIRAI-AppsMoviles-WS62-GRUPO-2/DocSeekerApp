@@ -131,7 +131,11 @@ class _SectionRow extends StatelessWidget {
               shadowColor: const MaterialStatePropertyAll(Colors.black),
             ),
             onPressed: () {
-              appRouter.push('/form_signup');
+              if(textButton == 'Profesional de la salud'){
+                appRouter.push('/profesional');
+              } else{
+                appRouter.push('/form_signup');
+              }
             },
             child: Text(
               textButton,
