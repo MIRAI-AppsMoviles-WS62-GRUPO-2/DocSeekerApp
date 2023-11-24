@@ -8,7 +8,7 @@ class Patient {
   String email;
   String phone;
   String password;
-  Patient(      {
+  Patient({
       required this.id,
       required this.name,
       required this.lastname,
