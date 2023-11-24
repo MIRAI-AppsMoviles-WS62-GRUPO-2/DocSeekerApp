@@ -1,18 +1,18 @@
-import 'package:dockseekerapp/screens/agregar_horario.dart';
-import 'package:dockseekerapp/screens/carga_archivo_paciente.dart';
-import 'package:dockseekerapp/screens/carga_archivo_medico.dart';
-import 'package:dockseekerapp/screens/form_signup_screen.dart';
-import 'package:dockseekerapp/screens/form_signup_screenM.dart';
-import 'package:dockseekerapp/screens/payment_form.dart';
-import 'package:dockseekerapp/screens/perfil.dart';
-import 'package:dockseekerapp/screens/home.dart';
-import 'package:dockseekerapp/screens/homeM.dart';
-import 'package:dockseekerapp/screens/index.dart';
-import 'package:dockseekerapp/screens/login_screen.dart';
-import 'package:dockseekerapp/screens/professionalList.dart';
-import 'package:dockseekerapp/screens/results.dart';
-import 'package:dockseekerapp/screens/noticias.dart';
-import 'package:dockseekerapp/screens/seleccionar_horario.dart';
+import 'package:doc_seeker_app/screens/agregar_horario.dart';
+import 'package:doc_seeker_app/screens/carga_archivo_paciente.dart';
+import 'package:doc_seeker_app/screens/carga_archivo_medico.dart';
+import 'package:doc_seeker_app/screens/form_signup_screen.dart';
+import 'package:doc_seeker_app/screens/form_signup_screenM.dart';
+import 'package:doc_seeker_app/screens/payment_form.dart';
+import 'package:doc_seeker_app/screens/perfil.dart';
+import 'package:doc_seeker_app/screens/home.dart';
+import 'package:doc_seeker_app/screens/homeM.dart';
+import 'package:doc_seeker_app/screens/index.dart';
+import 'package:doc_seeker_app/screens/login_screen.dart';
+import 'package:doc_seeker_app/screens/professionalList.dart';
+import 'package:doc_seeker_app/screens/results.dart';
+import 'package:doc_seeker_app/screens/noticias.dart';
+import 'package:doc_seeker_app/screens/seleccionar_horario.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(
