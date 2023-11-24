@@ -150,9 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
                           return CircularProgressIndicator(
-                              strokeWidth: 2,
-                              backgroundColor: Colors.red,
-                              color: Colors.white);
+                              backgroundColor: Colors.red, color: Colors.white);
                         } else if (snapshot.hasError) {
                           return Text("Error: $snapshot.error");
                         } else {

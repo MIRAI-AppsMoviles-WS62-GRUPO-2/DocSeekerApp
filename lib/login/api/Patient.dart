@@ -31,4 +31,18 @@ class Patient {
       password: json['password'] as String,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'lastname': lastname,
+      'middlename': middlename,
+      'gender': gender,
+      'birthdate': birthdate,
+      'email': email,
+      'phone': phone,
+      'password': password,
+    };
+  }
 }

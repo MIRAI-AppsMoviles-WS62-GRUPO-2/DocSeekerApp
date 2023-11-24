@@ -14,4 +14,14 @@ class PatientService {
     }
     return <Patient>[];
   }
+
+  Future<http.Response> createPatient(Patient patient) {
+    return http.post(
+      Uri.parse('https://docseekerapi.azurewebsites.net/api/v1/patients'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(patient.toJson()),
+    );
+  }
 }
