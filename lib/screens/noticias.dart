@@ -1,4 +1,4 @@
-import 'package:doc_seeker_app/widgets/side_menu.dart';
+import 'package:dockseekerapp/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
 
 class NoticiasScreen extends StatelessWidget {

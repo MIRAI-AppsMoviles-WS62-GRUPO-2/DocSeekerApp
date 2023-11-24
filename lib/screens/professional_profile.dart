@@ -1,6 +1,6 @@
-import 'package:doc_seeker_app/widgets/side_menu.dart';
+import 'package:dockseekerapp/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:doc_seeker_app/router/app_router.dart';
+import 'package:dockseekerapp/router/app_router.dart';
 
 class ProfessionalProfile extends StatefulWidget {
   const ProfessionalProfile({super.key, required this.doctor});
