@@ -9,7 +9,7 @@ class CargaArchivoPaciente extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15),
+        padding: const EdgeInsets.only(left: 25, right: 25),
         child: ListView(children: [
           Padding(
             padding: const EdgeInsets.only(top: 30, left: 10),
@@ -38,6 +38,7 @@ class CargaArchivoPaciente extends StatelessWidget {
             ),
           ),
           const Text('Paciente',
+              textAlign: TextAlign.center,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
           SizedBox(
             width: 300,
