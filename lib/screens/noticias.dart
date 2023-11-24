@@ -4,7 +4,6 @@ import 'dart:async';
 import 'package:doc_seeker_app/doctors/api/Service.dart';
 import 'package:doc_seeker_app/news/api/New.dart';
 import 'package:doc_seeker_app/news/api/NewService.dart';
-import 'package:doc_seeker_app/professional_profile.dart';
 import 'package:doc_seeker_app/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -48,7 +47,7 @@ class _NoticiasScreenState extends State<NoticiasScreen> {
     List<New> _newsList = [];
     final textStyles = Theme.of(context).textTheme;
     return Scaffold(
-      endDrawer: const SideMenu(),
+      endDrawer: const MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,

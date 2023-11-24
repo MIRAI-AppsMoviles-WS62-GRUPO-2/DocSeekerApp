@@ -23,7 +23,7 @@ class _AgregarScreenState extends State<SeleccionarScreen> {
     final textStyles = Theme.of(context).textTheme;
 
     return Scaffold(
-      endDrawer: const SideMenu(),
+      endDrawer: const MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,

@@ -22,7 +22,7 @@ class _ListProfessionalState extends State<ListProfessional> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        endDrawer: const SideMenu(),
+        endDrawer: const MyDrawer(),
         appBar: AppBar(
           title: const Text("Elegir al profesional", style: TextStyle(color: Colors.white),),
           backgroundColor: const Color(0xff0093AB),

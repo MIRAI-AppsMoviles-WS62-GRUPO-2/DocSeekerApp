@@ -24,7 +24,7 @@ class _ResultsState extends State<Results> {
     );
 
     return Scaffold(
-      endDrawer: const SideMenu(),
+      endDrawer: const MyDrawer(),
         bottomNavigationBar: BottomNavigationBar(
           unselectedItemColor: Colors.grey,
           type: BottomNavigationBarType.fixed,

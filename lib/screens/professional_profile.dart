@@ -16,7 +16,7 @@ class _ProfessionalProfileState extends State<ProfessionalProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: const SideMenu(),
+      endDrawer: const MyDrawer(),
       appBar: AppBar(
         title: const Text("Perfil del profesional", style: TextStyle(color: Colors.white),),
         backgroundColor: const Color(0xff0093AB),
@@ -30,7 +30,8 @@ class _ProfessionalProfileState extends State<ProfessionalProfile> {
         ],
         leading: IconButton(
           onPressed: () {
-            appRouter.go('/homeM');
+            //appRouter.go('/profileprof');
+            Navigator.pop(context);
           },
           icon: const Icon(Icons.arrow_back_ios_sharp, color: Colors.white,),
         ),

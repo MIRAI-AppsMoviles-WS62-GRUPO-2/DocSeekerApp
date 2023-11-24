@@ -32,7 +32,7 @@ class _PaymentFormState extends State<PaymentForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: const SideMenu(),
+      endDrawer: const MyDrawer(),
       appBar: AppBar(
         title: const Text("Datos de tarjeta", style: TextStyle(color: Colors.white),),
         backgroundColor: const Color(0xff0093AB),

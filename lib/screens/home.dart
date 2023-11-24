@@ -1,3 +1,4 @@
+import 'package:doc_seeker_app/screens/agenda.dart';
 import 'package:doc_seeker_app/widgets/image_slider.dart';
 import 'package:doc_seeker_app/router/app_router.dart';
 import 'package:doc_seeker_app/widgets/side_menu.dart';
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     final textStyles = Theme.of(context).textTheme;
 
     return Scaffold(
-      endDrawer: const SideMenu(),
+      endDrawer: const MyDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey,
         type: BottomNavigationBarType.fixed,
@@ -34,8 +35,8 @@ class HomeScreen extends StatelessWidget {
             label: 'Ajustes',
           ),
         ],
-        onTap: (int index){
-          if(index == 2){
+        onTap: (int index) {
+          if (index == 2) {
             appRouter.go('/perfil');
           }
         },
@@ -114,6 +115,10 @@ class HomeScreen extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AgendaMedico()));
                     print('Botón presionado');
                   },
                   child: Column(
