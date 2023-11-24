@@ -8,8 +8,8 @@ class Patient {
   String email;
   String phone;
   String password;
-  Patient(
-      {required this.id,
+  Patient(      {
+      required this.id,
       required this.name,
       required this.lastname,
       required this.middlename,
